@@ -8,7 +8,7 @@
     <link rel="icon" href="logo.jpg" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Base Styles */
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -19,7 +19,7 @@
             position: relative;
         }
 
-        /* Background Styles */
+    
         .background {
             position: fixed;
             top: 0;
@@ -103,6 +103,21 @@
             top: 80%;
             left: 60%;
         }
+        
+        .circle:nth-child(6) {
+            top: 50%;
+            left: 20%;
+        }
+        
+        .circle:nth-child(7) {
+            top: 15%;
+            left: 70%;
+        }
+        
+        .circle:nth-child(8) {
+            top: 85%;
+            left: 40%;
+        }
 
         .container {
             max-width: 1200px;
@@ -183,18 +198,18 @@
             border-radius: 15px;
             margin-bottom: 30px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Persistent shadow */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        /* Shadow and glowing effect on hover */
+     
         .navbar:hover,
         .profile:hover,
         .ai-chat:hover,
         .blogs:hover,
         .comments:hover {
             transform: scale(1.02);
-            box-shadow: 0 0 20px #d1b3ff, 0 0 40px #d1b3ff; /* Deepen shadow and add glow */
+            box-shadow: 0 0 20px #d1b3ff, 0 0 40px #d1b3ff;
         }
 
         .navbar h2,
@@ -218,7 +233,7 @@
         }
         
         .chatbox:hover {
-            box-shadow: 0 0 15px #d1b3ff, 0 0 30px #d1b3ff; /* Deepen shadow and add glow */
+            box-shadow: 0 0 15px #d1b3ff, 0 0 30px #d1b3ff; 
         }
         .input-area {
             display: flex;
@@ -369,12 +384,15 @@
 
 <body>
 
-     <div class="background">
+    <div class="background">
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
+        <div class="circle"></div> 
+        <div class="circle"></div> 
+        <div class="circle"></div> 
     </div>
 
     <div class="container">
@@ -445,7 +463,6 @@
                     newY = Math.random() * (screenHeight - 150);
                     isOverlapping = false;
         
-                    // Check for overlap with other circles
                     for (let other of circleData) {
                         if (other !== data) {
                             const dx = newX - other.x;
@@ -459,7 +476,6 @@
                     }
                 } while (isOverlapping);
         
-                // Move the circle to the new position
                 circle.style.left = `${newX}px`;
                 circle.style.top = `${newY}px`;
                 data.x = newX;
@@ -468,14 +484,12 @@
                 setTimeout(() => moveCircle(circle, data), Math.random() * 3000 + 2000);
             }
         
-            // Initialize circle data and start movement
             circles.forEach((circle, index) => {
                 const data = { x: 0, y: 0 };
                 circleData.push(data);
                 moveCircle(circle, data);
             });
                     
-            // Chat functionality
             const chatbox = document.getElementById('chatbox');
             const userInput = document.getElementById('user-input');
             const sendBtn = document.getElementById('send-btn');
@@ -484,19 +498,18 @@
                 const userMessage = userInput.value.trim();
                 if (userMessage) {
                     chatbox.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
-                    userInput.value = ''; // Clear input after sending
+                    userInput.value = ''; 
 
-                    // Simulate AI response
                     setTimeout(() => {
                         const aiResponse = getAIResponse(userMessage);
                         chatbox.innerHTML += `<div><strong>Claeiou AI:</strong> ${aiResponse}</div>`;
-                        chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
-                    }, 1000); // Simulate delay
+                        chatbox.scrollTop = chatbox.scrollHeight;
+                    }, 1000);
                 }
             });
 
             function getAIResponse(message) {
-                // Simple keyword-based AI response simulation
+                
                 if (message.toLowerCase().includes('hello')) {
                     return "AI is still under construction, please return later pa po:(";
                 } else if (message.toLowerCase().includes('data')) {
@@ -506,7 +519,6 @@
                 }
             }
 
-            // Submit comment functionality
             const commentBtn = document.getElementById('comment-btn');
             const commentInput = document.getElementById('comment-input');
 
@@ -514,23 +526,18 @@
                 const commentMessage = commentInput.value.trim();
                 if (commentMessage) {
                     alert("Comment submitted: " + commentMessage);
-                    commentInput.value = ''; // Clear input after submitting
+                    commentInput.value = ''; 
                 }
             });
         </script>
 
 <div class="icon-container">
-  <!-- GitHub Icon -->
   <a href="https://github.com/ccsarnado" target="_blank">
     <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="icon" alt="GitHub" style="width: 40px;">
   </a>
-
-  <!-- Instagram Icon -->
   <a href="https://instagram.com/chleocolein" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="icon" alt="Instagram" style="width: 40px;">
   </a>
-
-  <!-- Facebook Icon -->
   <a href="https://www.facebook.com/profile.php?id=100032138582902" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="icon" alt="Facebook" style="width: 40px;">
   </a>
